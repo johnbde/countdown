@@ -74,13 +74,7 @@ var countdown = function (e) {
 
 var counter_bump_increment = function(val) {
   if (val <= 30) {
-    return 5;
-  } else if (val <= 300) {
-    return 15;
-  } else if (val <= 3000) {
-    return 30;
-  } else {
-    return 60;
+    return 0;
   }
 }
 
