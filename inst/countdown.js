@@ -50,12 +50,14 @@ var countdown = function (e) {
 		  counters.timer[target.id].end  += parseInt(counters.timer[target.id].sec.innerHTML);
     }
 
+   if($('.countdown.finished').length === 0){
     counters.timer[target.id].value = counters.timer[target.id].end;
     update_timer(counters.timer[target.id]);
     if (counters.ticker) counters.timer[target.id].value += 1;
 
     // Start if not past end date
     if (counters.timer[target.id].value > 0) {
+
       base_class = target.className.replace(/\s?(running|finished)/, "")
       target.className = base_class + " running";
       counters.timer[target.id].running = true;
@@ -63,6 +65,8 @@ var countdown = function (e) {
       if (!counters.ticker) {
         counters.ticker = setInterval(counter_update_all, 1000);
       }
+   }
+
     }
   } else {
     // Bump timer value if running & clicked
@@ -79,6 +83,7 @@ var counter_bump_increment = function(val) {
 }
 
 var counter_update_all = function() {
+
   // Iterate over all running timers
   for (var i in counters.timer) {
     // Stop if passed end time
@@ -132,4 +137,4 @@ var counter_addEventListener = function() {
   }
 };
 
-counter_addEventListener();
+ counter_addEventListener();
