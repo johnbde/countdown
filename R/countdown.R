@@ -231,8 +231,8 @@ countdown <- function(
   file.copy(system.file("customjs.js", package = "countdown"),
             file.path(tmpdir, "customjs.js"))
   
- # file.copy(system.file("smb_stage_clear.mp3", package = "countdown"),
- #           file.path(tmpdir, "smb_stage_clear.mp3"))
+ file.copy(system.file("smb_stage_clear.mp3", package = "countdown"),
+            file.path(tmpdir, "smb_stage_clear.mp3"))
   
 
   # Set text based on background color
@@ -253,8 +253,8 @@ countdown <- function(
       version = utils::packageVersion("countdown"),
       src = gsub("//", "/", dirname(css_file)),
       script = c("countdown.js"
-                # ,                  
-                # "customjs.js"
+                ,                  
+                "customjs.js"
                 
                 ),
       stylesheet = "countdown.css",
