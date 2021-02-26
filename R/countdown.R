@@ -257,8 +257,10 @@ countdown <- function(
       stylesheet = "countdown.css",
       all_files = TRUE
     )
-
-  htmltools::browsable(x)
+  
+htmltools::htmlDependencies(x) <-  htmltools::htmlDependency("customjs", "1.0.0", system.file(package = "countdown"), script = "customjs.js")  
+htmltools::browsable(x)
+  
 }
 
 #' @describeIn countdown A full-screen timer that takes up the entire view port
