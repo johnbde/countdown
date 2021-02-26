@@ -252,7 +252,7 @@ countdown <- function(
       "countdown",
       version = utils::packageVersion("countdown"),
       src = gsub("//", "/", dirname(css_file)),
-      script = c("countdown.js", "customjs.js")
+      script = c("countdown.js", "customjs.js"),
       stylesheet = "countdown.css",
       all_files = TRUE
     )
