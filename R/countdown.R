@@ -1,11 +1,5 @@
 `%||%` <- function(x, y) if (is.null(x)) y else x
 
-  customjs <- function() {
-    
-    htmltools::htmlDependency("customjs", 
-               "1.0.0", system.file(package = "countdown"),
-                script = "customjs.js")
-    }
   
 #' Countdown Timer
 #'
@@ -233,8 +227,13 @@ countdown <- function(
   dir.create(tmpdir)
   file.copy(system.file("countdown.js", package = "countdown"),
             file.path(tmpdir, "countdown.js"))
+  
+  file.copy(system.file("customjs.js", package = "countdown"),
+            file.path(tmpdir, "customjs.js"))
+  
   file.copy(system.file("smb_stage_clear.mp3", package = "countdown"),
             file.path(tmpdir, "smb_stage_clear.mp3"))
+  
 
   # Set text based on background color
   color_running_text <- color_running_text %||%
@@ -253,12 +252,11 @@ countdown <- function(
       "countdown",
       version = utils::packageVersion("countdown"),
       src = gsub("//", "/", dirname(css_file)),
-      script = "countdown.js",
+      script = c("countdown.js", "customjs.js")
       stylesheet = "countdown.css",
       all_files = TRUE
     )
   
-htmltools::htmlDependencies(x) <-  htmltools::htmlDependency("customjs", "1.0.0", system.file(package = "countdown"), script = "customjs.js")  
 htmltools::browsable(x)
   
 }
