@@ -1,5 +1,12 @@
 `%||%` <- function(x, y) if (is.null(x)) y else x
 
+  customjs <- function() {
+    
+    htmltools::htmlDependency("customjs", 
+               "1.0.0", system.file(package = "countdown"),
+                script = "customjs.js")
+    }
+  
 #' Countdown Timer
 #'
 #' Creates a countdown timer using HTML, CSS, and vanilla JavaScript, suitable
