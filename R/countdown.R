@@ -228,8 +228,8 @@ countdown <- function(
   file.copy(system.file("countdown.js", package = "countdown"),
             file.path(tmpdir, "countdown.js"))
   
-  file.copy(system.file("customjs.js", package = "countdown"),
-            file.path(tmpdir, "customjs.js"))
+ # file.copy(system.file("customjs.js", package = "countdown"),
+ #           file.path(tmpdir, "customjs.js"))
   
  file.copy(system.file("smb_stage_clear.mp3", package = "countdown"),
             file.path(tmpdir, "smb_stage_clear.mp3"))
@@ -253,8 +253,8 @@ countdown <- function(
       version = utils::packageVersion("countdown"),
       src = gsub("//", "/", dirname(css_file)),
       script = c("countdown.js"
-                ,                  
-                "customjs.js"
+  #              ,                  
+  #             "customjs.js"
                 
                 ),
       stylesheet = "countdown.css",
