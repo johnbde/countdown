@@ -1,3 +1,3 @@
-.onAttach <- function(libname, pkgname) {
+.onLoad <- function(libname, pkgname) {
 shiny::addResourcePath('tutorial-customjs', system.file('customjs', package='countdown'))
 }
